@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Meditation_TimerApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @StateObject var appData = ApplicationData()
+  
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+        .environmentObject(appData)
     }
+  }
 }
