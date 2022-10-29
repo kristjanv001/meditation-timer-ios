@@ -11,15 +11,8 @@ import AVFoundation
 
 struct HomeView: View {
   @AppStorage("onboarding") var isOnboardingViewActive = false
-  @Environment(\.scenePhase) var scenePhase
-  
   @State private var isAnimating: Bool = false
-
-  
   @StateObject private var timerModel = TimerModel()
-  
-  
-  
   
   var body: some View {
     // MARK: - MAIN ZSTACK
@@ -51,14 +44,55 @@ struct HomeView: View {
           } //: HSTACK END
           .padding([.bottom], 5)
           
-          Text(timerModel.timerString)
-            .fontWeight(.semibold)
-            .frame(height: 30)
-            .padding([.horizontal])
-            .background(.thickMaterial)
-            .background(Color("LimedWhite"))
-            .opacity(0.3)
-            .cornerRadius(30)
+          HStack {
+            
+            Button(
+              action: {
+                if timerModel.totalSeconds >= 10 {
+                  timerModel.totalSeconds -= 5
+                  timerModel.timerString = TimerModel.setInitialTimerString(seconds: timerModel.totalSeconds)
+                }
+                
+              },
+              label: {
+                Image(systemName: "minus")
+                  .frame(height: 20)
+              }
+            )
+            .tint(Color("Capsella"))
+            .foregroundColor(Color("LuckyPotato"))
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.roundedRectangle)
+            .clipShape(Circle())
+            .disabled(timerModel.isStarted || timerModel.totalSeconds < 10)
+            
+            
+            Text(timerModel.timerString)
+              .fontWeight(.semibold)
+              .frame(height: 35)
+              .padding([.horizontal])
+              .background(.thickMaterial)
+              .background(Color("LimedWhite"))
+              .opacity(0.3)
+              .cornerRadius(30)
+            
+            Button(
+              action: {
+                timerModel.totalSeconds += 5
+                timerModel.timerString = TimerModel.setInitialTimerString(seconds: timerModel.totalSeconds)
+              },
+              label: {
+                Image(systemName: "plus")
+                  .frame(height: 20)
+              }
+            )
+            .tint(Color("Capsella"))
+            .foregroundColor(Color("LuckyPotato"))
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.roundedRectangle)
+            .clipShape(Circle())
+            .disabled(timerModel.isStarted)
+          }
           
         } //: HEADER VSTACK END
         .padding([.bottom])
@@ -174,26 +208,6 @@ struct HomeView: View {
           isAnimating = true
         }))
       }))
-      .onChange(of: scenePhase, perform: {(newPhase) in
-        
-        if timerModel.isStarted {
-          
-          
-          if newPhase != .active {
-            print("app went to background")
-            timerModel.isAppActive = false
-            
-
-          }
-          
-          if newPhase == .active {
-            print("app is active")
-            timerModel.isAppActive = true
-           
-          }
-        }
-        
-      })
       .task(priority: .background) {
         do {
           let center = UNUserNotificationCenter.current()

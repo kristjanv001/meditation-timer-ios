@@ -14,7 +14,7 @@ final class TimerModel: ObservableObject {
 //  static var initialTotalSeconds = 62
   static var initialTotalSeconds = 5
 //  private static var initialTotalSeconds = 2891 // 48 minutes; 11 seconds
-  private var totalSeconds = initialTotalSeconds
+  @Published var totalSeconds = initialTotalSeconds
   
   
   @Published public var timerString: String = TimerModel.setInitialTimerString(seconds: initialTotalSeconds)
@@ -38,16 +38,17 @@ final class TimerModel: ObservableObject {
     
     self.endTime = Calendar.current.date(
       byAdding: .second,
-      value: TimerModel.initialTotalSeconds,
+      value: self.totalSeconds,
       to: Date()
     )!
 
-    self.addNotification(in: TimerModel.initialTotalSeconds)
+    self.addNotification(in: self.totalSeconds)
   }
   
   
   func reset() {
     self.isStarted = false
+    self.totalSeconds = TimerModel.initialTotalSeconds
     self.timerString = TimerModel.setInitialTimerString(seconds: TimerModel.initialTotalSeconds)
   }
   
@@ -84,7 +85,7 @@ final class TimerModel: ObservableObject {
 
   
   
-  private static func setInitialTimerString(seconds: Int) -> String {
+  static func setInitialTimerString(seconds: Int) -> String {
     var secondsLeft = seconds
     
     secondsLeft = secondsLeft % (24 * 3600)
