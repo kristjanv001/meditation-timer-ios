@@ -10,6 +10,8 @@
 		4A02177E2913A00500A07E6C /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A02177D2913A00500A07E6C /* StartButton.swift */; };
 		4A0217802913A60A00A07E6C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A02177F2913A60A00A07E6C /* CircleButton.swift */; };
 		4A0217822913AD3400A07E6C /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0217812913AD3400A07E6C /* TimerButton.swift */; };
+		4A0217842913B16800A07E6C /* TimerText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0217832913B16800A07E6C /* TimerText.swift */; };
+		4A0217862913B4B400A07E6C /* QuoteOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0217852913B4B400A07E6C /* QuoteOverlay.swift */; };
 		4A25FB2228F29DAC001021A0 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25FB2128F29DAC001021A0 /* AudioPlayer.swift */; };
 		4A4DD66A28EFE2F500DF1F12 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DD66928EFE2F500DF1F12 /* OnboardingView.swift */; };
 		4A4DD66C28EFE34200DF1F12 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DD66B28EFE34200DF1F12 /* HomeView.swift */; };
@@ -32,6 +34,8 @@
 		4A02177D2913A00500A07E6C /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		4A02177F2913A60A00A07E6C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		4A0217812913AD3400A07E6C /* TimerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
+		4A0217832913B16800A07E6C /* TimerText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerText.swift; sourceTree = "<group>"; };
+		4A0217852913B4B400A07E6C /* QuoteOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteOverlay.swift; sourceTree = "<group>"; };
 		4A25FB2128F29DAC001021A0 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		4A25FB4728F3F901001021A0 /* Meditation-Timer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Meditation-Timer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4A4DD66928EFE2F500DF1F12 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				4AC6DF4B28EAFAF6008DE4D7 /* ContentView.swift */,
 				4A4DD66928EFE2F500DF1F12 /* OnboardingView.swift */,
 				4A4DD66B28EFE34200DF1F12 /* HomeView.swift */,
+				4A0217852913B4B400A07E6C /* QuoteOverlay.swift */,
+				4A0217832913B16800A07E6C /* TimerText.swift */,
 				4A02177D2913A00500A07E6C /* StartButton.swift */,
 				4A0217812913AD3400A07E6C /* TimerButton.swift */,
 				4A02177F2913A60A00A07E6C /* CircleButton.swift */,
@@ -210,6 +216,8 @@
 				4A0217802913A60A00A07E6C /* CircleButton.swift in Sources */,
 				4A02177E2913A00500A07E6C /* StartButton.swift in Sources */,
 				4A4DD66C28EFE34200DF1F12 /* HomeView.swift in Sources */,
+				4A0217862913B4B400A07E6C /* QuoteOverlay.swift in Sources */,
+				4A0217842913B16800A07E6C /* TimerText.swift in Sources */,
 				4AC6DF4C28EAFAF6008DE4D7 /* ContentView.swift in Sources */,
 				4A0217822913AD3400A07E6C /* TimerButton.swift in Sources */,
 				4AFA9C16291143C40092AA76 /* QuoteManager.swift in Sources */,

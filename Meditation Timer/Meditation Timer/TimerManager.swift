@@ -71,10 +71,8 @@ class TimerManager: ObservableObject {
       self.isFinished = true
       self.reset()
       
-      let randomInt = QuoteManager.pickRandomInt()
-      HomeView.currentQuoteIndex = randomInt
-      
-      print(randomInt)
+      HomeView.currentQuoteIndex = QuoteManager.pickRandomInt()
+      HomeView.hasSeenQuote = false
 
       return
     }

@@ -11,6 +11,7 @@ struct CircleButton: View {
   var action: () -> Void
   var sfSymbol: String
   var background: Color = Color("BlueBlue")
+  var foreGround: Color = Color("ElderFlower")
 
   
   var body: some View {
@@ -20,7 +21,7 @@ struct CircleButton: View {
         HStack {
           Image(systemName: sfSymbol)
             .imageScale(.large)
-            .foregroundColor(Color("ElderFlower"))
+            .foregroundColor(foreGround)
         }
       }
     )

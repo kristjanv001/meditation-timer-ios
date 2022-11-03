@@ -9,58 +9,37 @@ import SwiftUI
 import AVFoundation
 
 
-extension Image {
-  func buttonLabelImageModifier() -> some View {
-    return self
-      .imageScale(.large)
-  }
-}
-
-
-extension View {
-  func buttonModifier(background: Color, foreground: Color) -> some View {
-    return self
-      .tint(background)
-      .buttonStyle(.borderedProminent)
-      .buttonBorderShape(.capsule)
-      .controlSize(.large)
-      .foregroundColor(foreground)
-  }
-}
-
-
 struct HomeView: View {
   @AppStorage("onboarding") var isOnboardingViewActive = false
   @AppStorage("currentQuote") static var currentQuoteIndex: Int = 0
+  @AppStorage("hasSeenQuote") static var hasSeenQuote: Bool = false
   
-  
+  @State var isAppActive = true
+  @State private var isAnimating: Bool = false
+  @State var isQuoteOverlayVisible:  Bool = false {
+    didSet {
+      self.hasSeen = true
+    }
+  }
+  @State var hasSeen: Bool = false
   
   @EnvironmentObject private var quoteManager: QuoteManager
   @EnvironmentObject private var timerManager: TimerManager
   @EnvironmentObject private var userNotificationManager: UserNotificationManager
-  @State var isAppActive = true
-  @State private var isAnimating: Bool = false
-  
-  
-  var backgroundColor = "MosaicGreen"
-  var ringsColor = "ScovilleHigh"
-  var timerTextColor = "ElderFlower"
-  var buttonBackgroundColor = "BlueBlue"
-  var buttonForeGroundColor = "ElderFlower"
-  var resetButtonBackgroundColor = "ScovilleHigh"
   
   
   
+//  TODO: If the timer finishes aka there's a new quote, then hasSeen = true
+//  Also store to AppStorage
+
   var body: some View {
     
     // MARK: - MAIN ZSTACK
     ZStack {
       
-
-      Color(backgroundColor)
+      Color("MosaicGreen")
         .ignoresSafeArea(.all, edges: .all)
         
-      
       // MARK: - MAIN VSTACK
       VStack {
         
@@ -74,13 +53,12 @@ struct HomeView: View {
               .fontWeight(.bold)
               .foregroundColor(.black)
             
-            //            TODO: Remove
-//            Button(
-//              action: { isOnboardingViewActive = true },
-//              label: { Text("Onb") }
-//            )
-//            .foregroundColor(Color("Red"))
-//            .font(.footnote)
+            Button(
+              action: { isOnboardingViewActive = true },
+              label: { Text("Onb") }
+            )
+            .foregroundColor(Color("BlueBlue"))
+            .font(.footnote)
             
           } //: HSTACK END
           .padding([.bottom], 5)
@@ -91,34 +69,23 @@ struct HomeView: View {
               action: timerManager.decrementMeditationTime,
               sfSymbol: "minus"
             ).disabled(timerManager.isStarted || timerManager.totalSeconds < 10)
-            
 
-            Text(timerManager.timeString)
-              .font(.system(size: 75))
-              .fontWeight(.heavy)
-              .frame(minWidth: 230)
-              .padding([.horizontal])
-              .cornerRadius(30)
-              .foregroundColor(Color(timerTextColor))
+            TimerText(time: timerManager.timeString)
             
             TimerButton(
               action: timerManager.incrementMediationTime,
               sfSymbol: "plus"
             ).disabled(timerManager.isStarted)
             
-            
           }
           
         } //: HEADER VSTACK END
         
         
-//        Spacer()
-        
-        
         // MARK: ILLUSTRATION
         ZStack {
           CircleGroupView(
-            shapeColor: Color(ringsColor),
+            shapeColor: Color("ScovilleHigh"),
             shapeOpacity: 0.5,
             isAnimating: $isAnimating
           )
@@ -151,13 +118,24 @@ struct HomeView: View {
             sfSymbol: "arrow.triangle.2.circlepath",
             background: Color("ScovilleHigh")
           ).disabled(!timerManager.isStarted)
-
-          Spacer()
           
           CircleButton(
             action: timerManager.stop,
             sfSymbol: "checkmark"
           ).disabled(!timerManager.isStarted)
+          
+          Spacer()
+          
+          CircleButton(
+            action: {
+              withAnimation(.easeInOut(duration: 0.2)) {
+                self.isQuoteOverlayVisible.toggle()
+                HomeView.hasSeenQuote = true
+              }
+            },
+            sfSymbol: "gift.fill",
+            foreGround: HomeView.hasSeenQuote ? Color("ElderFlower") : Color("GoldenYellow")
+          ).disabled(false)
           
         } //: TIMER BUTTONS HSTACK END
         .padding([.vertical])
@@ -165,22 +143,10 @@ struct HomeView: View {
         
         
       } //: MAIN VSTACK END
-      .overlay(VStack {
-        let quoteToShow: Quote = QuoteManager.load("quotes")[HomeView.currentQuoteIndex]
+      .overlay(
         
-        Text("\(quoteToShow.body) — \(999)")
-          .font(.body)
-          .fontWeight(.light)
-          .multilineTextAlignment(.center)
-          .padding()
-      }
-               //      .frame(height: 600.0)
-        .background(.ultraThinMaterial)
-               //      .background(Color("LimedWhite"))
-//                     .opacity(0.9)
-        .cornerRadius(20)
-        .padding([.bottom], 90), alignment: .bottom)
-      
+        self.isQuoteOverlayVisible ? QuoteOverlay(index: HomeView.currentQuoteIndex) : nil , alignment: .bottom
+      )
       .onReceive(timerManager.timerPublisher, perform: {(_) in
         if timerManager.isStarted && isAppActive {
           timerManager.update()
@@ -188,7 +154,6 @@ struct HomeView: View {
       })
       .onAppear(perform: ({
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: ({
-      
           isAnimating = true
         }))
       }))
@@ -197,9 +162,7 @@ struct HomeView: View {
         do {
           let center = UNUserNotificationCenter.current()
           _ = try await center.requestAuthorization(options: [.alert, .sound])
-          await MainActor.run {
-            //            isButtonDisabled = !authorized
-          }
+          await MainActor.run {}
         } catch {
           print("Error: \(error)")
         }
