@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct TimerButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  var action: () -> Void
+  var sfSymbol: String
+  
+  var body: some View {
+    Button(
+      action: { action() },
+      label: {
+        Image(systemName: sfSymbol)
+          .frame(width: 20, height: 20)
+      }
+    )
+    .tint(Color("BlueBlue"))
+    .foregroundColor(Color("ElderFlower"))
+    .buttonStyle(.borderedProminent)
+    .buttonBorderShape(.roundedRectangle)
+    .clipShape(Circle())
+  }
 }
 
-struct TimerButton_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerButton()
-    }
-}
+
+
+
+
+

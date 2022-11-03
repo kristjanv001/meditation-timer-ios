@@ -57,6 +57,8 @@ class TimerManager: ObservableObject {
     
     self.totalSeconds = TimerManager.initialTotalSeconds
     self.timeString = TimerManager.setInitialTimeString(seconds: TimerManager.initialTotalSeconds)
+    
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
   }
   
   func update() {
@@ -90,7 +92,20 @@ class TimerManager: ObservableObject {
   }
   
   func stop() {
-    
+    print("Reset the timer, save meditated amount")
+  }
+  
+  func decrementMeditationTime() {
+    if self.totalSeconds >= 10 {
+      self.totalSeconds -= 5
+      self.timeString = TimerManager.setInitialTimeString(seconds: self.totalSeconds)
+    }
+  }
+
+
+  func incrementMediationTime() {
+    self.totalSeconds += 5
+    self.timeString = TimerManager.setInitialTimeString(seconds: self.totalSeconds)
   }
   
   

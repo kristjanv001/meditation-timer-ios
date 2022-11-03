@@ -87,57 +87,26 @@ struct HomeView: View {
           
           HStack {
             
-            Button(
-              action: {
-                if timerManager.totalSeconds >= 10 {
-                  timerManager.totalSeconds -= 5
-                  timerManager.timeString = TimerManager.setInitialTimeString(seconds: timerManager.totalSeconds)
-                }
-                
-              },
-              label: {
-                Image(systemName: "minus")
-                  .frame(width: 20, height: 20)
-              }
-            )
-            .tint(Color(buttonBackgroundColor))
-            .foregroundColor(Color(buttonForeGroundColor))
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.roundedRectangle)
-            .clipShape(Circle())
-            .disabled(timerManager.isStarted || timerManager.totalSeconds < 10)
+            TimerButton(
+              action: timerManager.decrementMeditationTime,
+              sfSymbol: "minus"
+            ).disabled(timerManager.isStarted || timerManager.totalSeconds < 10)
             
-            
+
             Text(timerManager.timeString)
-//              .font(.largeTitle)
-              .font(.system(size: 80))
-              
-              .fontWeight(.semibold)
+              .font(.system(size: 75))
+              .fontWeight(.heavy)
               .frame(minWidth: 230)
               .padding([.horizontal])
-//                          .background(.thickMaterial)
-//                          .background(Color("ScovilleHigh"))
-//                          .opacity(0.3)
               .cornerRadius(30)
               .foregroundColor(Color(timerTextColor))
             
-            Button(
-              action: {
-                // TODO: Move into separate function
-                timerManager.totalSeconds += 5
-                timerManager.timeString = TimerManager.setInitialTimeString(seconds: timerManager.totalSeconds)
-              },
-              label: {
-                Image(systemName: "plus")
-                  .frame(width: 20, height: 20)
-              }
-            ) //TODO: Create a function
-            .tint(Color(buttonBackgroundColor))
-            .foregroundColor(Color(buttonForeGroundColor))
-            .buttonStyle(.borderedProminent)
-            .buttonBorderShape(.roundedRectangle)
-            .clipShape(Circle())
-            .disabled(timerManager.isStarted)
+            TimerButton(
+              action: timerManager.incrementMediationTime,
+              sfSymbol: "plus"
+            ).disabled(timerManager.isStarted)
+            
+            
           }
           
         } //: HEADER VSTACK END
@@ -171,57 +140,26 @@ struct HomeView: View {
         
         // MARK: - TIMER BUTTONS
         HStack() {
-          // MARK: - START BUTTON
-          Button(
-            action: {
-              timerManager.start()
-            },
-            label: {
-              HStack {
-                Image(systemName: "play.fill").buttonLabelImageModifier()
-                Text("Start")
-                  .font(.system(.title3, design: .rounded))
-                  .foregroundColor(Color(buttonForeGroundColor))
-              } //: HSTACK END
-            }
+          
+          StartButton(
+            action: timerManager.start
           )
           .disabled(timerManager.isStarted)
-          .buttonModifier(
-            background: Color(buttonBackgroundColor),
-            foreground: Color(buttonForeGroundColor)
-          )
           
-          
-          // MARK: - RESET BUTTON
-          Button(
-            action: {
-              timerManager.reset()
-              UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            },
-            label: { Image(systemName: "arrow.triangle.2.circlepath").buttonLabelImageModifier() }
-          )
-          .disabled(!timerManager.isStarted)
-          .clipShape(Circle())
-          .buttonModifier(
-            background: Color(resetButtonBackgroundColor),
-            foreground: Color(buttonForeGroundColor)
-          )
-          
+          CircleButton(
+            action: timerManager.reset,
+            sfSymbol: "arrow.triangle.2.circlepath",
+            background: Color("ScovilleHigh")
+          ).disabled(!timerManager.isStarted)
+
           Spacer()
           
-          // MARK: - STOP / DONE BUTTON
-          Button(
-            action: { timerManager.stop() },
-            label: { Image(systemName: "checkmark").buttonLabelImageModifier() }
-          )
-          .disabled(!timerManager.isStarted)
-          .clipShape(Circle())
-          .buttonModifier(
-            background: Color(buttonBackgroundColor),
-            foreground: Color(buttonForeGroundColor)
-          )
+          CircleButton(
+            action: timerManager.stop,
+            sfSymbol: "checkmark"
+          ).disabled(!timerManager.isStarted)
           
-        } //: BUTTONS HSTACK END
+        } //: TIMER BUTTONS HSTACK END
         .padding([.vertical])
         
         

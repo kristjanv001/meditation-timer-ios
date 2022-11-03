@@ -8,13 +8,28 @@
 import SwiftUI
 
 struct StartButton: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  var action: () -> Void
+
+  
+  var body: some View {
+    Button(
+      action: { action() },
+      label: {
+        HStack {
+          Image(systemName: "play.fill")
+            .imageScale(.large)
+            .foregroundColor(Color("ElderFlower"))
+          Text("Start")
+            .font(.system(.title3, design: .rounded))
+            .foregroundColor(Color("ElderFlower"))
+        }
+      }
+    )
+    .tint(Color("BlueBlue"))
+    .buttonStyle(.borderedProminent)
+    .buttonBorderShape(.capsule)
+    .controlSize(.large)
+  }
 }
 
-struct StartButton_Previews: PreviewProvider {
-    static var previews: some View {
-        StartButton()
-    }
-}
+
