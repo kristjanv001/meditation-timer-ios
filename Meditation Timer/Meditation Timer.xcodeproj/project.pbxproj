@@ -8,42 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		4A25FB2228F29DAC001021A0 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25FB2128F29DAC001021A0 /* AudioPlayer.swift */; };
-		4A25FB4628F3EE73001021A0 /* steaq-tibetan-bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A25FB4528F3EE73001021A0 /* steaq-tibetan-bell.mp3 */; };
 		4A4DD66A28EFE2F500DF1F12 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DD66928EFE2F500DF1F12 /* OnboardingView.swift */; };
 		4A4DD66C28EFE34200DF1F12 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DD66B28EFE34200DF1F12 /* HomeView.swift */; };
 		4A4DD67028F02E5700DF1F12 /* CircleGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DD66F28F02E5700DF1F12 /* CircleGroupView.swift */; };
 		4A4DD67328F1218B00DF1F12 /* success.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 4A4DD67128F1218B00DF1F12 /* success.m4a */; };
-		4A4FF98D28F6A33E00BDB81C /* zen_gong_1_by_mooncubedesign.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4A4FF98C28F6A33D00BDB81C /* zen_gong_1_by_mooncubedesign.mp3 */; };
-		4A5FC1682906AEAB00DB2B86 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5FC1672906AEAB00DB2B86 /* TimerModel.swift */; };
 		4AB538152909454500C6BE91 /* chimeup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4AB538142909454500C6BE91 /* chimeup.mp3 */; };
-		4AB53817290D4AD200C6BE91 /* ApplicationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB53816290D4AD200C6BE91 /* ApplicationData.swift */; };
+		4AB53817290D4AD200C6BE91 /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB53816290D4AD200C6BE91 /* UserNotificationManager.swift */; };
+		4AB5381A290F966A00C6BE91 /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AB53819290F966A00C6BE91 /* quotes.json */; };
 		4AC6DF4A28EAFAF6008DE4D7 /* Meditation_TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6DF4928EAFAF6008DE4D7 /* Meditation_TimerApp.swift */; };
 		4AC6DF4C28EAFAF6008DE4D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC6DF4B28EAFAF6008DE4D7 /* ContentView.swift */; };
 		4AC6DF4E28EAFAF7008DE4D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC6DF4D28EAFAF7008DE4D7 /* Assets.xcassets */; };
 		4AC6DF5128EAFAF7008DE4D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AC6DF5028EAFAF7008DE4D7 /* Preview Assets.xcassets */; };
-		4AFBDF5E28F6ABCF009A2401 /* ES_Hit Deep Digital 1 - SFX Producer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4AFBDF5D28F6ABCF009A2401 /* ES_Hit Deep Digital 1 - SFX Producer.mp3 */; };
-		4AFBDF6228F6B138009A2401 /* ES_Digital Gong 1 - SFX Producer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4AFBDF6128F6B138009A2401 /* ES_Digital Gong 1 - SFX Producer.mp3 */; };
+		4AC8914D2913641B0007F95B /* tiger.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC8914C2913641B0007F95B /* tiger.png */; };
+		4AFA9C1029101DFB0092AA76 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA9C0F29101DFB0092AA76 /* Quote.swift */; };
+		4AFA9C14291133CF0092AA76 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA9C13291133CF0092AA76 /* TimerManager.swift */; };
+		4AFA9C16291143C40092AA76 /* QuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA9C15291143C40092AA76 /* QuoteManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A25FB2128F29DAC001021A0 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
-		4A25FB4528F3EE73001021A0 /* steaq-tibetan-bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "steaq-tibetan-bell.mp3"; sourceTree = "<group>"; };
 		4A25FB4728F3F901001021A0 /* Meditation-Timer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Meditation-Timer-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4A4DD66928EFE2F500DF1F12 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		4A4DD66B28EFE34200DF1F12 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		4A4DD66F28F02E5700DF1F12 /* CircleGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleGroupView.swift; sourceTree = "<group>"; };
 		4A4DD67128F1218B00DF1F12 /* success.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.m4a; sourceTree = "<group>"; };
-		4A4FF98C28F6A33D00BDB81C /* zen_gong_1_by_mooncubedesign.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zen_gong_1_by_mooncubedesign.mp3; sourceTree = "<group>"; };
-		4A5FC1672906AEAB00DB2B86 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 		4AB538142909454500C6BE91 /* chimeup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = chimeup.mp3; sourceTree = "<group>"; };
-		4AB53816290D4AD200C6BE91 /* ApplicationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationData.swift; sourceTree = "<group>"; };
+		4AB53816290D4AD200C6BE91 /* UserNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
+		4AB53819290F966A00C6BE91 /* quotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
 		4AC6DF4628EAFAF6008DE4D7 /* Meditation Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meditation Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC6DF4928EAFAF6008DE4D7 /* Meditation_TimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meditation_TimerApp.swift; sourceTree = "<group>"; };
 		4AC6DF4B28EAFAF6008DE4D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4AC6DF4D28EAFAF7008DE4D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AC6DF5028EAFAF7008DE4D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4AFBDF5D28F6ABCF009A2401 /* ES_Hit Deep Digital 1 - SFX Producer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ES_Hit Deep Digital 1 - SFX Producer.mp3"; sourceTree = "<group>"; };
-		4AFBDF6128F6B138009A2401 /* ES_Digital Gong 1 - SFX Producer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "ES_Digital Gong 1 - SFX Producer.mp3"; sourceTree = "<group>"; };
+		4AC8914C2913641B0007F95B /* tiger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tiger.png; sourceTree = "<group>"; };
+		4AFA9C0F29101DFB0092AA76 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		4AFA9C13291133CF0092AA76 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		4AFA9C15291143C40092AA76 /* QuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,54 +57,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A4DD66628EFE21700DF1F12 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				4A25FB2128F29DAC001021A0 /* AudioPlayer.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		4A4DD66728EFE23200DF1F12 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4A4DD66F28F02E5700DF1F12 /* CircleGroupView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4A4DD66828EFE27100DF1F12 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				4AC6DF4B28EAFAF6008DE4D7 /* ContentView.swift */,
-				4A4DD66928EFE2F500DF1F12 /* OnboardingView.swift */,
-				4A4DD66B28EFE34200DF1F12 /* HomeView.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		4A4DD67528F1219500DF1F12 /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				4AB538142909454500C6BE91 /* chimeup.mp3 */,
-				4AFBDF5D28F6ABCF009A2401 /* ES_Hit Deep Digital 1 - SFX Producer.mp3 */,
-				4AFBDF6128F6B138009A2401 /* ES_Digital Gong 1 - SFX Producer.mp3 */,
-				4A4FF98C28F6A33D00BDB81C /* zen_gong_1_by_mooncubedesign.mp3 */,
-				4A25FB4528F3EE73001021A0 /* steaq-tibetan-bell.mp3 */,
-				4A4DD67128F1218B00DF1F12 /* success.m4a */,
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
-		4A4FF98B28F577BC00BDB81C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				4A5FC1672906AEAB00DB2B86 /* TimerModel.swift */,
-				4AB53816290D4AD200C6BE91 /* ApplicationData.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		4AC6DF3D28EAFAF6008DE4D7 = {
 			isa = PBXGroup;
 			children = (
@@ -124,15 +76,20 @@
 		4AC6DF4828EAFAF6008DE4D7 /* Meditation Timer */ = {
 			isa = PBXGroup;
 			children = (
-				4A25FB4728F3F901001021A0 /* Meditation-Timer-Info.plist */,
-				4AC6DF4928EAFAF6008DE4D7 /* Meditation_TimerApp.swift */,
-				4AC6DF4D28EAFAF7008DE4D7 /* Assets.xcassets */,
 				4AC6DF4F28EAFAF7008DE4D7 /* Preview Content */,
-				4A4DD66828EFE27100DF1F12 /* Screens */,
-				4A4DD66728EFE23200DF1F12 /* Views */,
-				4A4FF98B28F577BC00BDB81C /* Models */,
-				4A4DD67528F1219500DF1F12 /* Sounds */,
-				4A4DD66628EFE21700DF1F12 /* Utilities */,
+				4A25FB4728F3F901001021A0 /* Meditation-Timer-Info.plist */,
+				4AC6DF4D28EAFAF7008DE4D7 /* Assets.xcassets */,
+				4AC6DF4928EAFAF6008DE4D7 /* Meditation_TimerApp.swift */,
+				4AC6DF4B28EAFAF6008DE4D7 /* ContentView.swift */,
+				4A4DD66928EFE2F500DF1F12 /* OnboardingView.swift */,
+				4A4DD66B28EFE34200DF1F12 /* HomeView.swift */,
+				4A4DD66F28F02E5700DF1F12 /* CircleGroupView.swift */,
+				4AB53816290D4AD200C6BE91 /* UserNotificationManager.swift */,
+				4A25FB2128F29DAC001021A0 /* AudioPlayer.swift */,
+				4AFA9C13291133CF0092AA76 /* TimerManager.swift */,
+				4AFA9C15291143C40092AA76 /* QuoteManager.swift */,
+				4AFA9C1229102C460092AA76 /* Model */,
+				4AFA9C11291022870092AA76 /* Resources */,
 			);
 			path = "Meditation Timer";
 			sourceTree = "<group>";
@@ -143,6 +100,25 @@
 				4AC6DF5028EAFAF7008DE4D7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4AFA9C11291022870092AA76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4AC8914C2913641B0007F95B /* tiger.png */,
+				4AB53819290F966A00C6BE91 /* quotes.json */,
+				4AB538142909454500C6BE91 /* chimeup.mp3 */,
+				4A4DD67128F1218B00DF1F12 /* success.m4a */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4AFA9C1229102C460092AA76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4AFA9C0F29101DFB0092AA76 /* Quote.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,12 +181,10 @@
 			files = (
 				4AC6DF5128EAFAF7008DE4D7 /* Preview Assets.xcassets in Resources */,
 				4A4DD67328F1218B00DF1F12 /* success.m4a in Resources */,
-				4A25FB4628F3EE73001021A0 /* steaq-tibetan-bell.mp3 in Resources */,
-				4AFBDF5E28F6ABCF009A2401 /* ES_Hit Deep Digital 1 - SFX Producer.mp3 in Resources */,
 				4AB538152909454500C6BE91 /* chimeup.mp3 in Resources */,
-				4AFBDF6228F6B138009A2401 /* ES_Digital Gong 1 - SFX Producer.mp3 in Resources */,
-				4A4FF98D28F6A33E00BDB81C /* zen_gong_1_by_mooncubedesign.mp3 in Resources */,
+				4AB5381A290F966A00C6BE91 /* quotes.json in Resources */,
 				4AC6DF4E28EAFAF7008DE4D7 /* Assets.xcassets in Resources */,
+				4AC8914D2913641B0007F95B /* tiger.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,13 +196,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4DD67028F02E5700DF1F12 /* CircleGroupView.swift in Sources */,
+				4AFA9C14291133CF0092AA76 /* TimerManager.swift in Sources */,
 				4A4DD66A28EFE2F500DF1F12 /* OnboardingView.swift in Sources */,
 				4A4DD66C28EFE34200DF1F12 /* HomeView.swift in Sources */,
 				4AC6DF4C28EAFAF6008DE4D7 /* ContentView.swift in Sources */,
-				4A5FC1682906AEAB00DB2B86 /* TimerModel.swift in Sources */,
+				4AFA9C16291143C40092AA76 /* QuoteManager.swift in Sources */,
 				4AC6DF4A28EAFAF6008DE4D7 /* Meditation_TimerApp.swift in Sources */,
-				4AB53817290D4AD200C6BE91 /* ApplicationData.swift in Sources */,
+				4AB53817290D4AD200C6BE91 /* UserNotificationManager.swift in Sources */,
 				4A25FB2228F29DAC001021A0 /* AudioPlayer.swift in Sources */,
+				4AFA9C1029101DFB0092AA76 /* Quote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
