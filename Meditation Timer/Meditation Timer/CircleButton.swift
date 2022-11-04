@@ -27,7 +27,6 @@ struct CircleButton: View {
     )
     .tint(background)
     .buttonStyle(.borderedProminent)
-    .buttonBorderShape(.capsule) //: TODO: ??
     .controlSize(.large)
     .clipShape(Circle())
   }

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StartButton: View {
   var action: () -> Void
-
   
   var body: some View {
     Button(
@@ -27,9 +26,16 @@ struct StartButton: View {
     )
     .tint(Color("BlueBlue"))
     .buttonStyle(.borderedProminent)
-    .buttonBorderShape(.capsule)
     .controlSize(.large)
+    .clipShape(Capsule())
   }
 }
 
 
+
+
+//  .tint(background)
+//  .buttonStyle(.borderedProminent)
+//  .buttonBorderShape(.capsule) //: TODO: ??
+//  .controlSize(.large)
+//  .clipShape(Circle())

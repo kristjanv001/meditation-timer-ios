@@ -13,14 +13,15 @@ struct QuoteOverlay: View {
   
   var body: some View {
     
-    VStack {
+    HStack {
       let quoteToShow: Quote = QuoteManager.load("quotes")[index]
-      
-      Text("\(quoteToShow.body) — \(999)")
+//      Spacer()
+      Text("\"\(quoteToShow.body)\" — \(quoteToShow.author)")
         .font(.body)
         .fontWeight(.light)
         .multilineTextAlignment(.center)
         .padding()
+//      Spacer()
     }
     .background(.ultraThinMaterial)
     .cornerRadius(20)

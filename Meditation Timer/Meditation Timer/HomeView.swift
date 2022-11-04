@@ -18,10 +18,9 @@ struct HomeView: View {
   @State private var isAnimating: Bool = false
   @State var isQuoteOverlayVisible:  Bool = false {
     didSet {
-      self.hasSeen = true
+      HomeView.hasSeenQuote = true
     }
   }
-  @State var hasSeen: Bool = false
   
   @EnvironmentObject private var quoteManager: QuoteManager
   @EnvironmentObject private var timerManager: TimerManager
@@ -29,9 +28,9 @@ struct HomeView: View {
   
   
   
-//  TODO: If the timer finishes aka there's a new quote, then hasSeen = true
-//  Also store to AppStorage
-
+  //  TODO: If the timer finishes aka there's a new quote, then hasSeen = true
+  //  Also store to AppStorage
+  
   var body: some View {
     
     // MARK: - MAIN ZSTACK
@@ -39,29 +38,29 @@ struct HomeView: View {
       
       Color("MosaicGreen")
         .ignoresSafeArea(.all, edges: .all)
-        
+      
       // MARK: - MAIN VSTACK
       VStack {
         
-        // MARK: - HEADER
+        Button(
+          action: { self.isOnboardingViewActive = true },
+          label: {
+            
+            Text("Onboarding")
+              .font(.system(.footnote, design: .rounded))
+              .foregroundColor(Color("ElderFlower"))
+            
+          }
+        )
+        
+        Text("Meditate")
+          .font(.title)
+          .fontWeight(.bold)
+        
+        Spacer()
+        
+        // MARK: - TIMER + BUTTONS
         VStack {
-          
-          HStack {
-            // TODO: Enable
-            Text("Meditate")
-              .font(.title)
-              .fontWeight(.bold)
-              .foregroundColor(.black)
-            
-            Button(
-              action: { isOnboardingViewActive = true },
-              label: { Text("Onb") }
-            )
-            .foregroundColor(Color("BlueBlue"))
-            .font(.footnote)
-            
-          } //: HSTACK END
-          .padding([.bottom], 5)
           
           HStack {
             
@@ -69,7 +68,7 @@ struct HomeView: View {
               action: timerManager.decrementMeditationTime,
               sfSymbol: "minus"
             ).disabled(timerManager.isStarted || timerManager.totalSeconds < 10)
-
+            
             TimerText(time: timerManager.timeString)
             
             TimerButton(
@@ -78,11 +77,14 @@ struct HomeView: View {
             ).disabled(timerManager.isStarted)
             
           }
+          .frame(alignment: .top)
           
-        } //: HEADER VSTACK END
+        } //: VSTACK
+        
+        Spacer()
         
         
-        // MARK: ILLUSTRATION
+        // MARK: - ILLUSTRATION + CIRCLES
         ZStack {
           CircleGroupView(
             shapeColor: Color("ScovilleHigh"),
@@ -100,12 +102,13 @@ struct HomeView: View {
               .repeatForever()
               , value: isAnimating
             )
-        }
+        } //: ZSTACK
+        .frame(alignment: .center)
         
         Spacer()
-  
         
-        // MARK: - TIMER BUTTONS
+        
+        // MARK: - TIMER CONTROL BUTTONS
         HStack() {
           
           StartButton(
@@ -122,9 +125,8 @@ struct HomeView: View {
           CircleButton(
             action: timerManager.stop,
             sfSymbol: "checkmark"
-          ).disabled(!timerManager.isStarted)
+          ).disabled(!timerManager.isStarted || timerManager.meditatedSeconds < 5)
           
-          Spacer()
           
           CircleButton(
             action: {
@@ -137,14 +139,16 @@ struct HomeView: View {
             foreGround: HomeView.hasSeenQuote ? Color("ElderFlower") : Color("GoldenYellow")
           ).disabled(false)
           
-        } //: TIMER BUTTONS HSTACK END
+          
+          
+        } //: HSTACK
         .padding([.vertical])
+        .frame(alignment: .bottom)
         
         
         
-      } //: MAIN VSTACK END
+      } //: MAIN VSTACK
       .overlay(
-        
         self.isQuoteOverlayVisible ? QuoteOverlay(index: HomeView.currentQuoteIndex) : nil , alignment: .bottom
       )
       .onReceive(timerManager.timerPublisher, perform: {(_) in

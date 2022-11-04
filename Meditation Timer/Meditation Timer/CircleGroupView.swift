@@ -19,19 +19,14 @@ struct CircleGroupView: View {
     // MARK: - MAIN ZSTACK
     ZStack {
       
-      // MARK: - CIRCLE 1
       Circle()
         .stroke(shapeColor.opacity(shapeOpacity), lineWidth: 50)
-//        .frame(width: self.width, height: self.height, alignment: .center)
         .frame(maxWidth: self.width, maxHeight: self.height, alignment: .center)
       
-      // MARK: - CIRCLE 2
       Circle()
         .stroke(shapeColor.opacity(shapeOpacity), lineWidth: 80)
-//        .frame(width: self.width, height: self.height, alignment: .center)
         .frame(maxWidth: self.width, maxHeight: self.height, alignment: .center)
-    } //: ZSTACK!Viishtpudus2017;
-    
+    } //: ZSTACK END
     .padding([.vertical])
     .blur(radius: isAnimating ? 0 : 10)
     .opacity(isAnimating ? 1 : 0)

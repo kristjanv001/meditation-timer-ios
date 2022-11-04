@@ -13,9 +13,9 @@ struct OnboardingView: View {
   private let buttonHeight: CGFloat = 72
   let hapticFeedback = UINotificationFeedbackGenerator()
   
-  private static var textSubtitleOne = "Achieve lazer-sharp mental focus like you've never experienced."
-  private static var textSubtitleTwo = "Remain grounded and calm in unpredictable hectic situations."
-  private static var textSubtitleThree = "Get timeless insights to help you stay motivated."
+  private static var textSubtitleOne = "Achieve lazer-sharp mental focus"
+  private static var textSubtitleTwo = "Remain grounded and calm in unpredictable situations"
+  private static var textSubtitleThree = "Get timeless insights"
   
   
   @State private var textSubtitle: String = OnboardingView.textSubtitleOne
@@ -32,7 +32,7 @@ struct OnboardingView: View {
   var body: some View {
     // MARK: - MAIN ZSTACK
     ZStack {
-      Color("Entrapment")
+      Color("BlueBlue")
         .ignoresSafeArea(.all, edges: .all)
       
       // MARK: - MAIN VSTACK
@@ -43,20 +43,20 @@ struct OnboardingView: View {
           
           // MARK: - TITLE
           Text(textTitle)
-            .font(.system(size: 60))
+            .font(.system(size: 80))
             .fontWeight(.heavy)
-            .foregroundColor(Color("Shyness"))
+            .foregroundColor(Color("MosaicGreen"))
             .transition(.opacity)
             .id(textTitle)
           
           // MARK: - SUBTITLE
           Text(textSubtitle)
-            .font(.title3)
+            .font(.title)
             .fontWeight(.light)
-            .foregroundColor(Color("PinkMoment"))
+            .foregroundColor(Color("ElderFlower"))
             .multilineTextAlignment(.center)
             .padding([.horizontal], 40)
-            .frame(height: 90, alignment: .top)
+            .frame(height: 110, alignment: .top)
 
         } //: HEADER
         .opacity(isAnimating ? 1 : 0)
@@ -148,13 +148,15 @@ struct OnboardingView: View {
           Text("Got it")
             .font(.system(.title3, design: .rounded))
             .fontWeight(.bold)
-            .foregroundColor(Color("Shyness"))
+            .foregroundColor(Color("ElderFlower"))
             .offset(x: 20)
+          
+          
           
           // Capsule (Dynamic)
           HStack {
             Capsule()
-              .fill(Color("PinkMoment"))
+              .fill(LinearGradient(gradient: Gradient(colors: [Color("GoldenYellow"), Color("MosaicGreen")]), startPoint: .leading, endPoint: .trailing))
               .opacity(1)
               .frame(width: buttonOffset > buttonWidth / 2 ? buttonOffset + 62 : buttonOffset + buttonHeight)
             Spacer()
@@ -164,14 +166,14 @@ struct OnboardingView: View {
           HStack {
             ZStack {
               Circle()
-                .fill(Color("PinkMoment"))
+                .fill(Color("MosaicGreen"))
               Circle()
                 .fill(.black.opacity(0.15))
                 .padding(6)
               Image(systemName: "chevron.right.2")
                 .font(.system(size: 24, weight: .bold, design: .rounded))
             } //: ZSTACK
-            .foregroundColor(Color("Shyness"))
+            .foregroundColor(Color("ElderFlower"))
             .frame(width: buttonHeight) // TODO: Weird
             .offset(x: buttonOffset)
             .gesture(

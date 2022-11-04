@@ -10,7 +10,7 @@ import SwiftUI
 
 
 class TimerManager: ObservableObject {
-  static var initialTotalSeconds: Int = 5
+  static var initialTotalSeconds: Int = 10
   
   @EnvironmentObject private var userNotificationManager: UserNotificationManager
   @EnvironmentObject private var quoteManager: QuoteManager
@@ -19,8 +19,10 @@ class TimerManager: ObservableObject {
   @Published var totalSeconds: Int = initialTotalSeconds
   @Published var timeString: String = TimerManager.setInitialTimeString(seconds: initialTotalSeconds)
   @Published var isStarted: Bool = false
-  @Published var endTime: Date = Date()  
-  @Published var isFinished: Bool = false
+  @Published var endTime: Date = Date()
+  
+  @Published var meditatedSeconds: Int = 0
+  
   
   static func setInitialTimeString(seconds: Int) -> String {
     var secondsLeft = seconds
@@ -52,9 +54,8 @@ class TimerManager: ObservableObject {
   }
   
   func reset() {
-    self.isFinished = false
     self.isStarted = false
-    
+    self.meditatedSeconds = 0
     self.totalSeconds = TimerManager.initialTotalSeconds
     self.timeString = TimerManager.setInitialTimeString(seconds: TimerManager.initialTotalSeconds)
     
@@ -65,15 +66,12 @@ class TimerManager: ObservableObject {
     let now = Date()
     let diff = self.endTime.timeIntervalSince1970 - now.timeIntervalSince1970
     
-    
-    
     if diff <= 0 {
-      self.isFinished = true
       self.reset()
       
       HomeView.currentQuoteIndex = QuoteManager.pickRandomInt()
       HomeView.hasSeenQuote = false
-
+      
       return
     }
     
@@ -87,15 +85,32 @@ class TimerManager: ObservableObject {
     
     self.timeString = String(format: "%02d:%02d", minutes, seconds)
     
+    self.meditatedSeconds = TimerManager.initialTotalSeconds - self.totalSeconds
+ 
   }
   
   func stop() {
-    print("Reset the timer, save meditated amount")
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    
+    UserNotificationManager.addNotification(in: 1)
+    
+    HomeView.currentQuoteIndex = QuoteManager.pickRandomInt()
+    HomeView.hasSeenQuote = false
+
+    self.isStarted = false
+    self.meditatedSeconds = 0
+    self.totalSeconds = TimerManager.initialTotalSeconds
+    
+    withAnimation(.easeInOut(duration: 0.3)) {
+      self.timeString = TimerManager.setInitialTimeString(seconds: TimerManager.initialTotalSeconds)
+    }
+    
   }
   
   func decrementMeditationTime() {
     if self.totalSeconds >= 10 {
       self.totalSeconds -= 5
+      TimerManager.initialTotalSeconds -= 5
       self.timeString = TimerManager.setInitialTimeString(seconds: self.totalSeconds)
     }
   }
@@ -103,6 +118,7 @@ class TimerManager: ObservableObject {
 
   func incrementMediationTime() {
     self.totalSeconds += 5
+    TimerManager.initialTotalSeconds += 5
     self.timeString = TimerManager.setInitialTimeString(seconds: self.totalSeconds)
   }
   
